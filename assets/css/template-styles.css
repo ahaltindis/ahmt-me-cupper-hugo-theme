@@ -322,12 +322,14 @@ caption {
 }
 .intro-and-nav {
     font-size: 0.8rem;
-    width: 15rem;
+    width: calc(max(15rem, 15rem + ((100vw - 78rem) / 2)));
     height: 100vh;
     position: fixed;
     top: 0;
     left: 0;
+    padding-left: calc(max(0rem, ((100vw - 78rem) / 2)));
     border-right: 2px solid;
+    z-index: 1;
 }
 .intro-and-nav > div {
     padding: 2.25rem;
@@ -355,7 +357,6 @@ caption {
     max-width: 25rem;
 }
 .main-and-footer {
-    margin-left: 15rem;
 }
 .main-and-footer > div {
     max-width: 40rem;
@@ -450,7 +451,7 @@ caption {
   padding: 0.25em 0.75em;
 }
 #disqus-comments {
-  display: none; 
+  display: none;
 }
 
 /* Pattern lists */
@@ -896,6 +897,16 @@ h1 svg {
 }
 
 /* Media queries */
+@media screen and (max-width: 90em) {
+    .main-and-footer {
+        margin-left: 10rem;
+    }
+}
+@media screen and (max-width: 75em) {
+    .main-and-footer {
+        margin-left: 15rem;
+    }
+}
 @media screen and (max-width: 45em) {
     body a {
       hyphens: auto;
@@ -1031,7 +1042,7 @@ h1 svg {
     background: rgba(0,0,0,.8);
     color: #fefefe;
 }
-  
+
 ::selection {
   background: rgba(0,0,0,.8);
   color: #fefefe;
