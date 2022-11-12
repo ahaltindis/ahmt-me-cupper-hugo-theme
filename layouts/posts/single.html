@@ -8,13 +8,13 @@
     </h1>
 
     <div class="date">
-      {{ $dateFormat := $.Site.Params.dateFormat | default "Jan 2, 2006" }}
+      {{ $dateLayout := $.Site.Params.dateLayout | default ":date_long" }}
       {{ $publishDate := .PublishDate }}
-      <strong>{{ T "publish_date" }} </strong>{{ $publishDate.Format $dateFormat }}
+      <strong>{{ T "publish_date" }} </strong>{{ .PublishDate | time.Format $dateLayout }}
       {{ with .Lastmod }}
         {{ if gt . $publishDate }}
           <br>
-          <strong>{{ T "last_updated" }} </strong>{{ .Format $dateFormat }}
+          <strong>{{ T "last_updated" }} </strong>{{ . | time.Format $dateLayout }}
         {{ end }}
       {{ end }}
     </div>
