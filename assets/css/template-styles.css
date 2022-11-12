@@ -42,7 +42,9 @@ body,
 .main-and-footer {
     margin-top: 0;
 }
-p + p {
+p + p,
+ul,
+ol {
     margin-top: 0.75rem;
 }
 .priority {
