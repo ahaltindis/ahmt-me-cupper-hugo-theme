@@ -24,6 +24,9 @@ body {
     background-color: #fefefe;
     overscroll-behavior-y: none;
 }
+main {
+    font-size: calc(1rem + 0.10vw);
+}
 template {
   display: none !important;
 }
@@ -157,7 +160,7 @@ pre,
 }
 code {
     font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
-    font-size: 0.85em;
+    font-size: 0.75em;
 }
 .cmd {
     padding: 0.75rem;
@@ -212,7 +215,7 @@ blockquote {
   padding-left: 0.75rem;
 }
 blockquote .author {
-  font-size: 0.85rem;
+  font-size: 0.75rem;
 }
 
 /* Buttons */
