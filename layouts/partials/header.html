@@ -3,14 +3,14 @@
     <div class="intro">
       <a
         class="logo"
-        href="{{ .Site.BaseURL }}"
+        href="{{ .Site.BaseURL | relLangURL }}"
         aria-label="{{ .Site.Title }} home page"
       >
         {{ with .Site.Params.navTitleText }}
           <h1>{{ . }}</h1>
         {{ else }}
-          <img 
-            src="{{ "images/logo.svg" | relURL }}" 
+          <img
+            src="{{ "images/logo.svg" | relURL }}"
             alt="{{ .Site.Params.logoAlt | default "Logo" }}"
           >
         {{ end }}
