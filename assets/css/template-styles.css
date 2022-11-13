@@ -348,6 +348,22 @@ caption {
 .patterns {
   flex: 1 1 auto;
 }
+.lang-switch-list {
+    overflow: auto;
+    margin-top: 1.5rem;
+    min-width: max-content;
+}
+.lang-switch-list ul{
+    margin-top: 0;
+}
+.lang-switch-list a {
+    border: 0;
+    display: flex;
+    flex-wrap: nowrap;
+    padding: 0 1rem;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+}
 .logo {
     border: 0;
 }
@@ -916,6 +932,11 @@ h1 svg {
     }
     .intro-and-nav > div {
         padding: 1.5rem;
+    }
+    .lang-switch-list {
+        margin: 0 auto;
+        margin-top: 0.5rem;
+        font-size: 1rem;
     }
     .main-and-footer {
         margin: 0;

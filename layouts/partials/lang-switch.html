@@ -1,0 +1,23 @@
+<div class="lang-switch-list">
+  <ul>
+    {{ $currentContent := . }}
+    {{ if $currentContent.IsTranslated }}
+      {{ range $currentContent.Translations }}
+      <li><a href="{{ .RelPermalink }}">[ {{ lower .Language.LanguageName }} ]</a></li>
+      {{ end }}
+    {{ end }}
+
+    {{ range $.FirstSection.Translations }}
+      {{ $otherTranslation := .}}
+      {{ $skip := false }}
+      {{ range $currentContent.Translations }}
+        {{ if eq .Language $otherTranslation.Language }}
+        {{ $skip = true }}
+        {{ end }}
+      {{ end }}
+      {{ if and (eq $skip false) (.Site.Params.showLangSwitchAlways | default false) }}
+        <li><a href="{{ .RelPermalink }}">[ {{ lower .Language.LanguageName }} ]</a></li>
+      {{ end }}
+    {{ end }}
+  </ul>
+</div>
