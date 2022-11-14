@@ -1,0 +1,31 @@
+name: ahmt-me-copper
+license: MIT
+licenselink: "https://github.com/ahaltindis/ahmt-me-cupper-hugo-theme/blob/master/LICENSE"
+description: "An accessibility-friendly Hugo theme, personalized fork for ahmt.me website."
+homepage: "https://github.com/ahaltindis/ahmt-me-cupper-hugo-theme"
+tags:
+  - accessible
+  - blog
+  - documentation
+  - gallery
+  - ahmt-me
+features:
+  - accessible
+  - blog
+  - documentation
+  - gallery
+  - ahmt-me
+min_version: 0.81.0
+
+author:
+  name: Ahmet Altindis
+  homepage: "https://ahmt.me/"
+
+originalfork:
+  name: Zachary Betz
+  homepage: "https://zwbetz.com/"
+
+original:
+  name: Cupper
+  homepage: "https://thepaciellogroup.github.io/cupper/"
+  repo: "https://github.com/ThePacielloGroup/cupper"
