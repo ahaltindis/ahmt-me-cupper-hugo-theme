@@ -5,7 +5,11 @@
     var listItems = list.getElementsByTagName("li");
     for (i = 0; i < listItems.length; i++) {
       var item = listItems[i];
-      var text = item.innerText.toUpperCase();
+      var headers = item.getElementsByTagName("h2");
+      if (headers.length < 1) {
+        continue;
+      }
+      var text = headers[0].innerText.toUpperCase();
       if (text.indexOf(filter) > -1) {
         item.style.display = "";
       } else {

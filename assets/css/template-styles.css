@@ -31,7 +31,7 @@ template {
   display: none !important;
 }
 * + * {
-    margin-top: 2.25rem;
+    margin-top: 1.75rem;
 }
 br,
 dt,
@@ -47,7 +47,8 @@ body,
 }
 p + p,
 ul,
-ol {
+ol,
+div .h2-container + p {
     margin-top: 0.75rem;
 }
 .priority {
@@ -498,6 +499,40 @@ caption {
     margin: 0 0.25rem 0 0;
 }
 
+/* Post list */
+.list-sub-section {
+    margin-top: 0;
+    margin-bottom: 0.55em;
+    font-size: 0.85rem;
+}
+.list-sub-section a {
+    border-bottom: 1px solid;
+}
+.list-sub-section .date {
+    display: inline-block;
+    padding-right: 0.5em;
+    border-right: 1px solid;
+}
+.list-sub-section .tags {
+    display: inline-block;
+}
+.list-sub-section li + li {
+    margin-top: 0;
+    padding-top: 0;
+    border-top: none;
+}
+.read-more {
+    display: inline-block;
+    margin-top: 0;
+    font-weight: bold;
+}
+.read-more a {
+    border-bottom: 1px solid;
+}
+.read-more svg {
+    margin-top: 0;
+}
+
 /* Date */
 .date {
     margin-top: 0;
@@ -760,6 +795,17 @@ h1 svg {
 }
 .bookmark-icon {
   vertical-align: middle;
+}
+.nav-item-icon {
+    vertical-align: middle;
+    stroke-width: 4;
+    opacity: 1;
+}
+.pattern:hover .nav-item-icon {
+    opacity: 0.6;
+}
+.pattern [aria-current] .nav-item-icon {
+    opacity: 1;
 }
 .link-icon {
   width: 0.75em;

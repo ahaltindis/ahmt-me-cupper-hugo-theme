@@ -20,3 +20,5 @@
   translation: Başlıklarda ara...
 - id: search_aria_label
   translation: Başlıklarda ara
+- id: read_more
+  translation: Devamını oku

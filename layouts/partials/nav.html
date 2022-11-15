@@ -15,8 +15,8 @@
       {{ $active = or $active (and (eq .Identifier "posts") (eq $current.Section "posts")) }}
       {{ $active = or $active (and (eq .Identifier "tags") (eq $current.Section "tags")) }}
       <a href="{{ .URL | relLangURL }}" {{ if $active }}aria-current="page"{{ end }}>
-        <svg class="bookmark-icon" aria-hidden="true" focusable="false" viewBox="0 0 40 50">
-          <use href="#bookmark"></use>
+        <svg class="nav-item-icon" aria-hidden="true" focusable="false">
+          <use href="#arrow-right"></use>
         </svg>
         <span class="text">{{ .Name }}</span>
       </a>
