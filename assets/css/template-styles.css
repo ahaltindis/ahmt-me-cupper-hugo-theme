@@ -165,6 +165,8 @@ code {
 }
 .cmd {
     padding: 0.75rem;
+    padding-top: 0rem;
+    padding-bottom: 0rem;
     background: #111;
 }
 .cmd code {
