@@ -1,0 +1,2 @@
+{{ $isExternal := strings.HasPrefix .Destination "http" }}
+<a href="{{ .Destination | safeURL }}" {{ with .Title}} title="{{ . }}" {{ end }}{{ if $isExternal }} target="_blank" rel="noopener" {{ end }}>{{ .Text | safeHTML }}{{ if $isExternal }} <svg stroke-width="3"><use href="#arrow-external" /></svg>{{ end }}</a>
