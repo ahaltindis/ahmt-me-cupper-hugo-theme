@@ -867,7 +867,7 @@ h1 svg {
 /* Section links */
 .h2-container {
     position: relative;
-    font-size: 1.66rem;
+    font-size: 1.2rem;
 }
 .h2-container a {
     position: absolute;
@@ -876,6 +876,10 @@ h1 svg {
     line-height: 1;
     left: -1em;
     border: 0;
+    opacity: 0.3;
+}
+.h2-container a:hover {
+    opacity: 1;
 }
 
 /* Single page layout */
