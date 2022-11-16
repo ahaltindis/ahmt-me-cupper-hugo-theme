@@ -25,7 +25,7 @@ body {
     overscroll-behavior-y: none;
 }
 main {
-    font-size: calc(1rem + 0.10vw);
+    font-size: calc(0.85rem + 0.10vw);
 }
 template {
   display: none !important;
@@ -85,7 +85,13 @@ figure p img {
 a {
   outline-offset: 2px;
 }
-
+a.external {
+    display: inline-block;
+    margin: 0
+}
+a:hover svg {
+    opacity: 0.6;
+}
 /* Katex math typesetting */
 .katex * {
     margin-top: 0;
@@ -127,13 +133,13 @@ h4 {
     line-height: 1.125;
 }
 h1 {
-    font-size: 2rem;
-}
-h2 {
     font-size: 1.66rem;
 }
+h2 {
+    font-size: 1.44rem;
+}
 h3 {
-    font-size: 1.25rem;
+    font-size: 1.10rem;
 }
 h4,
 h5 {
@@ -516,7 +522,7 @@ caption {
     border-right: 1px solid;
 }
 .list-sub-section .tags {
-    display: inline-block;
+    display: inline;
 }
 .list-sub-section li + li {
     margin-top: 0;
@@ -986,6 +992,9 @@ h1 svg {
         position: static;
         width: auto;
         height: auto;
+    }
+    main {
+        font-size: calc(0.95rem + 0.10vw);
     }
     .intro {
         text-align: center;
