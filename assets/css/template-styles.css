@@ -568,6 +568,9 @@ caption {
 .note.warning > div {
     margin-left: 1.25rem;
 }
+.note.plain {
+    border: none;
+}
 
 /* Tick lists */
 .ticks li {
