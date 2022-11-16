@@ -22,3 +22,5 @@
   translation: Search by title
 - id: read_more
   translation: Read more
+- id: figure
+  translation: Figure

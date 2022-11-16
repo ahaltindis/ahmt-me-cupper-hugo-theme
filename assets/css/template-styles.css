@@ -596,13 +596,21 @@ figcaption {
     font-style: italic;
     margin-top: 0.5rem;
 }
+figcaption h4 {
+    font-weight: normal;
+    font-size: 0.85rem;
+}
 main {
     display: block;
     counter-reset: fig;
 }
-figcaption::before {
+figcaption .title {
+    font-weight: bold;
+    user-select: none;
+}
+figcaption .title::after {
     counter-increment: fig;
-    content: 'Figure ' counter(fig) ':\0020';
+    content: ' ' counter(fig) ':\0020';
     font-weight: bold;
 }
 
