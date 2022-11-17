@@ -541,6 +541,34 @@ caption {
     margin-top: 0;
 }
 
+/* Pagination */
+.pagination {
+    margin-right: 2em;
+    text-align: end;
+    margin-top: 2em;
+}
+.pagination * {
+    display: inline-block;
+    margin: 0;
+}
+.pagination .page-item a {
+    border: 1px solid;
+    width: 1.75em;
+    line-height: 1.75em;
+    text-align: center;
+}
+.pagination .page-item.active a,
+.pagination .page-item.disabled a  {
+    border: none;
+}
+.pagination .page-item.disabled {
+    opacity: 0.3;
+
+}
+.pagination .page-item.active {
+    filter: invert();
+}
+
 /* Date */
 .date {
     margin-top: 0;
@@ -1012,6 +1040,14 @@ h1 svg {
     }
     .main-and-footer {
         margin: 0;
+    }
+    .pagination {
+        margin: 0 auto;
+        margin-top: 2em;
+        text-align: center;
+    }
+    .pagination .page-item a {
+        width: 1.5em;
     }
     #patterns-list {
       margin-top: 0.5rem;

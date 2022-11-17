@@ -10,8 +10,9 @@
   />
   {{ end }}
   <p />
+  {{ $paginator := .Paginate (where .Pages "Type" "posts") }}
   <ul class="patterns-list" id="list">
-    {{ range .Pages.ByPublishDate.Reverse }}
+    {{ range $paginator.Pages }}
     <li>
       <h2>
         <a href="{{ .RelPermalink }}">
@@ -61,5 +62,6 @@
     </li>
     {{ end }}
   </ul>
+  {{ template "_internal/pagination.html" . }}
 </main>
 {{ end }}
