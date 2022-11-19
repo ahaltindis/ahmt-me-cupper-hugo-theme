@@ -13,6 +13,7 @@
       {{ $active := or ($current.IsMenuCurrent "nav" .) ($current.HasMenuCurrent "nav" .) }}
       {{ $active = or $active (eq .Name $current.Title) }}
       {{ $active = or $active (and (eq .Identifier "posts") (eq $current.Section "posts")) }}
+      {{ $active = or $active (and (eq .Identifier "dict") (eq $current.Section "dict")) }}
       {{ $active = or $active (and (eq .Identifier "tags") (eq $current.Section "tags")) }}
       <a href="{{ .URL | relLangURL }}" {{ if $active }}aria-current="page"{{ end }}>
         <svg class="nav-item-icon" aria-hidden="true" focusable="false">

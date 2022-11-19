@@ -24,3 +24,5 @@
   translation: Devamını oku
 - id: figure
   translation: Şekil
+- id: dict_all_entries
+  translation: bu başlıktaki tüm girdiler

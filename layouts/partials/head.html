@@ -34,7 +34,11 @@
     <link rel="stylesheet" href="{{ . | relURL }}">
   {{ end }}
 
-  {{ $title := print .Title " | " .Site.Title }}
+  {{ $pageTitle := .Title }}
+  {{ if (eq $pageTitle "") }}
+  {{ $pageTitle = .Parent.Title }}
+  {{ end }}
+  {{ $title := print $pageTitle " | " .Site.Title }}
   {{ if .IsHome }}
     {{ $title = .Site.Title }}
   {{ end }}

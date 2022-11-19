@@ -24,3 +24,5 @@
   translation: Read more
 - id: figure
   translation: Figure
+- id: dict_all_entries
+  translation: all entries in this title
