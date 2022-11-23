@@ -101,7 +101,7 @@ a.external::after {
     height: 0.75rem;
     margin-top: 0.25rem;
     margin-left: 0.125rem;
-    background-image: url({{ "css/images/arrow-external.svg" | absURL }});
+    background-image: url({{ "images/icon-arrow-external.svg" | absURL }});
 }
 a:hover svg {
     opacity: 0.6;
@@ -305,43 +305,6 @@ th:empty {
     border: 0;
 }
 
-/* Tested using... table */
-.tested {
-    text-align: center;
-    border: 1px solid #111;
-}
-.tested tr {
-    display: flex;
-    flex-flow: row wrap;
-}
-.tested td, .tested th {
-    vertical-align: middle;
-    overflow: hidden;
-    flex: 1 0 auto;
-    border: 1px solid #111;
-}
-.tested th {
-    width: 100%;
-    background-color: #111;
-    color: #fefefe;
-    outline-color: #111;
-}
-.tested img {
-    max-width: 3rem;
-}
-.tested span {
-    display: block;
-    margin: 0;
-}
-.tested .additional {
-    font-size: 0.85rem;
-}
-caption {
-    font-size: 1.125rem;
-    padding-bottom: 0.25rem;
-    font-style: italic;
-}
-
 /* Page structure */
 .wrapper {
     position: relative;
@@ -458,17 +421,6 @@ caption {
   background-color: #111;
   clip-path: polygon(0% 0%, 90% 0%, 100% 50%, 90% 100%, 0% 100%);
   color: #fefefe;
-}
-
-/* Menu button */
-#menu-button {
-    display: none;
-    width: 100%;
-    text-align: center;
-}
-#menu-button:focus {
-    outline: none;
-    box-shadow: inset 0 0 0 0.25rem #999;
 }
 
 /* Tables of contents */
@@ -682,18 +634,20 @@ caption {
     border-left: 0.5rem solid;
     font-size: 0.85rem;
 }
-.note .sign {
-    height: 2.25rem;
-    width: 2.25rem;
-}
 .note > div {
     margin-left: 0.75rem;
 }
-.note > div > img:first-child {
-    height: 1.5rem;
+.note .sign {
+    float: left;
+    height: 1.25rem;
+    width: 1.45rem;
+    background-repeat: no-repeat;
 }
-.note > div >:first-child + * {
-    margin-top: 0;
+.note .sign.info {
+    background-image: url({{ "images/icon-info.svg" | absURL }});
+}
+.note .sign.warning {
+    background-image: url({{ "images/icon-warning.svg" | absURL }});
 }
 .note.warning {
     border-left: 0;
@@ -717,16 +671,13 @@ caption {
     position: relative;
 }
 .ticks li::before {
-    content: '';
-    display: inline-block;
-    width: 1rem;
-    height: 1rem;
-    margin-right: 0.25rem;
-    background-image: url({{ "css/images/icon-tick.svg" | absURL }});
-    background-size: 100% auto;
+    content: '✓';
+    font-size: 1.15em;
+    background: none;
+    width: auto;
     position: absolute;
-    left: -1.25rem;
-    top: 0.25rem;
+    left: -1rem;
+    top: -0.1rem;
 }
 
 /* Figures */
@@ -903,21 +854,6 @@ p:empty {
     margin-top: 2.25rem;
 }
 
-/* WCAG and principles */
-.wcag li {
-    font-size: 0.85em;
-}
-.principles p {
-    font-size: 0.85rem;
-    margin-top: 0.75rem;
-}
-.principles.with-desc > li + li,
-.wcag.with-desc > li + li {
-    border-top: 1px solid;
-    margin-top: 0.75rem;
-    padding-top: 0.75rem;
-}
-
 /* Site errors */
 .site-error {
     padding: 1.5rem;
@@ -942,9 +878,6 @@ h1 svg {
   width: 0.85em;
   height: 0.85em;
 }
-.wcag-icon {
-  width: 1.25em;
-}
 .bookmark-icon {
   vertical-align: middle;
 }
@@ -965,10 +898,6 @@ h1 svg {
 }
 .tags svg, .link-icon {
   vertical-align: middle;
-}
-.balloon-icon {
-  width: 0.75em;
-  margin-right: 0;
 }
 .print {
     white-space: nowrap;
@@ -1017,20 +946,13 @@ h1 svg {
 }
 
 /* Section links */
-.h2-container {
-    position: relative;
-    font-size: 1rem;
-}
-.h2-container a {
-    position: absolute;
-    margin-top: 0;
-    top: 0;
-    line-height: 1;
-    left: -1em;
-    border: 0;
+.heading-link {
+    font-size: 1em;
     opacity: 0.3;
+    border: none;
+    margin-left: -1.1rem;
 }
-.h2-container a:hover {
+.heading-link:hover {
     opacity: 1;
 }
 
@@ -1187,9 +1109,18 @@ h1 svg {
     .pagination .page-item a {
         width: 1.5em;
     }
+    #patterns-nav {
+        min-width: unset;
+    }
+    #patterns-nav svg {
+        display: none;
+    }
     #patterns-list {
-      margin-top: 0.5rem;
-      border: 1px solid;
+        margin-top: 0.5rem;
+        margin-bottom: 1rem;
+    }
+    #patterns-list li{
+        display: inline-block;
     }
     .patterns h3 {
         font-size: 1.5rem;
@@ -1208,21 +1139,18 @@ h1 svg {
         font-size: 1rem;
     }
     .pattern a {
-        padding: 1rem;
+        padding: 0;
+        border-bottom: 1px solid;
+        margin-right: 0.75rem;
+        margin-top: 1.25rem;
+        font-weight: normal;
     }
     .pattern [aria-current] {
         clip-path: none;
-        padding: 1rem;
-    }
-    .pattern + .pattern {
-        border-top: 1px solid;
-        margin-top: 0;
-    }
-    #menu-button {
-        display: block;
-    }
-    #patterns-list {
-        display: none;
+        font-weight: bold;
+        filter: unset;
+        background-color: unset;
+        color: unset;
     }
     .toc-link {
       display: none;
@@ -1284,12 +1212,6 @@ h1 svg {
   img[src*=".svg"] {
     background: #fefefe;
     padding: 0.5rem;
-  }
-  .ticks li::before {
-    content: '✓';
-    background: none;
-    width: auto;
-    top: 0;
   }
   .note.warning {
       border-left: 0.5rem solid;

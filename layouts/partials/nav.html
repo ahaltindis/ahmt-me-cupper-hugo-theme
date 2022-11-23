@@ -1,11 +1,10 @@
+<svg style="display: none">
+  <symbol id="arrow-right" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+  </symbol>
+</svg>
 <nav id="patterns-nav" class="patterns" role="navigation">
   <h2 class="vh">{{ T "nav_main_navigation" }}</h2>
-  <button id="menu-button" aria-expanded="false">
-    <svg viewBox="0 0 50 50" aria-hidden="true" focusable="false">
-      <use href="#menu"></use>
-    </svg>
-    {{ T "nav_button_menu" }}
-  </button>
   {{ $current := . }}
   <ul id="patterns-list">
   {{ range .Site.Menus.nav }}
