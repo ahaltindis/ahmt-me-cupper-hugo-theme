@@ -25,13 +25,13 @@ body {
     overscroll-behavior-y: none;
 }
 main {
-    font-size: calc(0.85rem + 0.10vw);
+    font-size: calc(0.8rem + 0.10vw);
 }
 template {
   display: none !important;
 }
 * + * {
-    margin-top: 1.75rem;
+    margin-top: 1.25rem;
 }
 br,
 dt,
@@ -48,7 +48,8 @@ body,
 p + p,
 ul,
 ol,
-div .h2-container + p {
+div .h2-container + p,
+div + p {
     margin-top: 0.75rem;
 }
 .priority {
@@ -57,6 +58,10 @@ div .h2-container + p {
 a {
     text-decoration: none;
     border-bottom: 1px solid;
+}
+a:hover {
+    border-color: #C83737;
+    color: #C83737;
 }
 abbr {
     text-decoration: none;
@@ -86,8 +91,17 @@ a {
   outline-offset: 2px;
 }
 a.external {
-    display: inline-block;
-    margin: 0
+    margin: 0;
+    margin-right: 0.8rem;
+}
+a.external::after {
+    content: '';
+    position: absolute;
+    width: 0.75rem;
+    height: 0.75rem;
+    margin-top: 0.25rem;
+    margin-left: 0.125rem;
+    background-image: url({{ "css/images/arrow-external.svg" | absURL }});
 }
 a:hover svg {
     opacity: 0.6;
@@ -342,7 +356,6 @@ caption {
     top: 0;
     left: 0;
     padding-left: calc(max(0rem, ((100vw - 78rem) / 2)));
-    border-right: 2px solid;
     z-index: 1;
 }
 .intro-and-nav > div {
@@ -476,18 +489,14 @@ caption {
 .patterns-list {
     list-style: none;
     margin-left: 0;
+    margin-top: 2em;
 }
 .patterns-list h2 {
     font-size: 1.25rem;
     line-height: 1.6;
 }
 .patterns-list li + li {
-    margin-top: 1rem;
-    padding-top: 1rem;
-    border-top: 2px solid;
-}
-.patterns-list a {
-    border: 0;
+    padding-top: 0.75rem;
 }
 
 /* Tags */
@@ -508,6 +517,23 @@ caption {
 }
 
 /* Post list */
+.posts-list-single {
+    display: flex;
+}
+.posts-list-single * {
+    margin: 0;
+    display: inline;
+}
+.posts-list-single .left {
+    min-width: 120px;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+}
+.posts-list-single .right {
+    flex: 1 1 auto;
+    margin-left: 0.25em;
+}
 .list-sub-section {
     margin-top: 0;
     margin-bottom: 0.55em;
@@ -519,7 +545,6 @@ caption {
 .list-sub-section .date {
     display: inline-block;
     padding-right: 0.5em;
-    border-right: 1px solid;
 }
 .list-sub-section .tags {
     display: inline;
@@ -561,7 +586,6 @@ caption {
 }
 .dict-content .entry-meta {
     margin-top: 1em;
-    opacity: 0.7;
     text-align: right;
     margin-bottom: 1.75em;
 }
@@ -569,6 +593,7 @@ caption {
     display: block;
     font-size: 0.9em;
     text-align: right;
+    opacity: 0.7;
 }
 .dict-content .entry-meta .date {
     font-size: 0.7em;
@@ -588,7 +613,6 @@ caption {
     height: calc(100vh - 7rem);
     position: fixed;
     margin: 0;
-    border-right: 2px solid;
     overflow-y: scroll;
     font-size: 0.75em;
 }
@@ -598,8 +622,7 @@ caption {
 }
 .dict-entries-list li {
     padding-right: 12px;
-    padding-left: 1px;
-    margin: 0;
+    margin: 5px;
 }
 .dict-entries-list li:hover {
     background-color: #f1f1f1;
@@ -607,13 +630,14 @@ caption {
 .dict-entries-list li a {
     position: relative;
     display: block;
-    border: 0;
-    padding: 10px 0;
+    border: none;
+    padding: 5px 0;
     padding-right: 30px;
+    outline-offset: 0;
 }
 .dict-entries-list li a .side{
     position: absolute;
-    top: 10px;
+    top: 5px;
     right: 0;
     opacity: 0.6;
 }
@@ -650,6 +674,7 @@ caption {
 .date {
     margin-top: 0;
     font-size: 0.85rem;
+    opacity: 0.7;
 }
 
 /* Notes and warnings */
@@ -681,6 +706,9 @@ caption {
 }
 .note.plain {
     border: none;
+}
+.note.gray {
+    opacity: 0.7;
 }
 
 /* Tick lists */
@@ -991,7 +1019,7 @@ h1 svg {
 /* Section links */
 .h2-container {
     position: relative;
-    font-size: 1.2rem;
+    font-size: 1rem;
 }
 .h2-container a {
     position: absolute;

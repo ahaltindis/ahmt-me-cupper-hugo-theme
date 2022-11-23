@@ -1,52 +1,19 @@
 {{ define "main" }}
 <main id="main">
   <h1>{{ .Title }}</h1>
-  {{ if site.Params.search }}
-  <input
-    id="search"
-    type="text"
-    placeholder="{{ T "search_placeholder" }}"
-    aria-label="{{ T "search_aria_label" }}"
-  />
+  {{ $paginator := . }}
+  {{ if $.Site.Params.paginatePosts }}
+  {{ $paginator = .Paginate .Pages }}
   {{ end }}
-  <p />
-  {{ $paginator := .Paginate (where .Pages "Type" "posts") }}
   <ul class="patterns-list" id="list">
     {{ range $paginator.Pages }}
     <li>
-      <h2>
-        <a href="{{ .RelPermalink }}">
-          <svg
-            class="bookmark"
-            aria-hidden="true"
-            viewBox="0 0 40 50"
-            focusable="false"
-          >
-            <use href="#bookmark"></use>
-          </svg>
-          {{ .Title }}
-        </a>
-      </h2>
+      {{ if $.Site.Params.showPostSummaries }}
+      <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
       <div class="list-sub-section">
         <div class="date">
           {{ .PublishDate | time.Format $.Site.Params.dateLayout | default ":date_long" }}
         </div>
-        {{ with .Params.tags }}
-        <div class="tags">
-          <ul aria-label="{{ T "aria_label_tags" }}">
-            {{ range $tag := . }}
-              <li>
-                <svg class="tag-icon" aria-hidden="true" viewBox="0 0 177.16535 177.16535" focusable="false">
-                  <use href="#tag"></use>
-                </svg>
-                {{ with $.Site.GetPage (printf "/%s/%s" "tags" $tag) -}}
-                  <a href="{{ .RelPermalink }}">{{ $tag }}</a>
-                {{- end -}}
-              </li>
-            {{ end }}
-          </ul>
-        </div>
-      {{ end }}
       </div>
       {{ .Summary }}
         {{ if .Truncated }}
@@ -59,9 +26,17 @@
           </a>
         </span>
         {{ end }}
+      {{ else }}
+      <div class="posts-list-single">
+        <div class="left"><span>{{ .PublishDate.Format "2006-01-02" }}</span></div>
+        <div class="right"><a href="{{ .RelPermalink }}"><strong>{{ .Title }}</strong></a></div>
+      </div>
+      {{ end }}
     </li>
     {{ end }}
   </ul>
+  {{ if $.Site.Params.paginatePosts }}
   {{ template "_internal/pagination.html" . }}
+  {{ end }}
 </main>
 {{ end }}
