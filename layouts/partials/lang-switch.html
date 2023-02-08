@@ -3,7 +3,7 @@
     {{ $currentContent := . }}
     {{ if $currentContent.IsTranslated }}
       {{ range $currentContent.Translations }}
-      <li><a href="{{ .RelPermalink }}">[ {{ lower .Language.LanguageName }} ]</a></li>
+      <li><a href="{{ .Permalink }}">[ {{ lower .Language.LanguageName }} ]</a></li>
       {{ end }}
     {{ end }}
 
@@ -16,7 +16,7 @@
         {{ end }}
       {{ end }}
       {{ if and (eq $skip false) (.Site.Params.showLangSwitchAlways | default false) }}
-        <li><a href="{{ .RelPermalink }}">[ {{ lower .Language.LanguageName }} ]</a></li>
+        <li><a href="{{ .Permalink }}">[ {{ lower .Language.LanguageName }} ]</a></li>
       {{ end }}
     {{ end }}
   </ul>

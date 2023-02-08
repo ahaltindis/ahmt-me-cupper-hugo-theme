@@ -1,7 +1,7 @@
 /* Fonts */
 @font-face {
     font-family: 'Miriam Libre';
-    src: url('{{ "css/fonts/miriamlibre-bold.woff2" | absURL }}') format('woff2'), url('{{ "css/fonts/miriamlibre-bold.woff" | absURL }}') format('woff');
+    src: url('{{ "css/fonts/miriamlibre-bold.woff2" | absLangURL }}') format('woff2'), url('{{ "css/fonts/miriamlibre-bold.woff" | absLangURL }}') format('woff');
     font-weight: bold;
     font-style: normal;
 }
@@ -101,7 +101,7 @@ a.external::after {
     height: 0.75rem;
     margin-top: 0.25rem;
     margin-left: 0.125rem;
-    background-image: url({{ "images/icon-arrow-external.svg" | absURL }});
+    background-image: url({{ "images/icon-arrow-external.svg" | absLangURL }});
 }
 a:hover svg {
     opacity: 0.6;
@@ -644,14 +644,14 @@ th:empty {
     background-repeat: no-repeat;
 }
 .note .sign.info {
-    background-image: url({{ "images/icon-info.svg" | absURL }});
+    background-image: url({{ "images/icon-info.svg" | absLangURL }});
 }
 .note .sign.warning {
-    background-image: url({{ "images/icon-warning.svg" | absURL }});
+    background-image: url({{ "images/icon-warning.svg" | absLangURL }});
 }
 .note.warning {
     border-left: 0;
-    background-image: url({{ "css/images/stripe.svg" | absURL }});
+    background-image: url({{ "css/images/stripe.svg" | absLangURL }});
     background-size: 0.5rem auto;
     background-repeat: repeat-y;
 }
