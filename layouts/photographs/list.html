@@ -1,0 +1,15 @@
+{{ define "main" }}
+<main id="main">
+  <h1>{{ .Title }}</h1>
+  {{ .Content }}
+  <div>
+    <div class="photographs">
+      {{ range $.Site.Data.photographs }}
+      <div class="photograph-item" tabindex="0">
+        <a href="{{ relref $.Page .slug }}"><img src="http://127.0.0.1:1313/images/p/small-{{ .filename }}" class="photograph-image" alt="{{ .text }}"></a>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</main>
+{{ end }}
