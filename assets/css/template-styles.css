@@ -1275,6 +1275,10 @@ h1 svg {
     max-height: 65vh;
 }
 
+.photograph-meta {
+    margin-top: 0.5rem;
+}
+
 .photograph-meta * {
     margin-top: 0;
     margin-bottom: 0.55em;
@@ -1286,4 +1290,5 @@ h1 svg {
 .photograph-meta span {
     margin-left: 0.25em;
     margin-right: 1em;
+    line-height: 21px;
 }
