@@ -1229,7 +1229,7 @@ h1 svg {
   color: #fefefe;
 }
 
-/* Photograph */
+/* Photograph-list */
 .photographs {
     display: flex;
     flex-wrap: wrap;
@@ -1264,4 +1264,26 @@ h1 svg {
         width: auto;
         margin: 0;
     }
+}
+
+/* Photograph-single */
+.photograph-single-container {
+    text-align: center;
+}
+
+.photograph-single {
+    max-height: 65vh;
+}
+
+.photograph-meta * {
+    margin-top: 0;
+    margin-bottom: 0.55em;
+    font-size: 0.70rem;
+    color: #444444;
+    display: flex;
+}
+
+.photograph-meta span {
+    margin-left: 0.25em;
+    margin-right: 1em;
 }
