@@ -6,7 +6,7 @@
     <div class="photographs">
       {{ range $.Site.Data.photographs }}
       <div class="photograph-item" tabindex="0">
-        <a href="{{ relref $.Page .slug }}"><img src="http://127.0.0.1:1313/images/p/small-{{ .filename }}" class="photograph-image" alt="{{ .text }}"></a>
+        <a href="{{ relref $.Page .slug }}"><img src="{{ $.Site.Params.cdnUrl }}/{{ .imagePreviewPath }}" class="photograph-image" alt="{{ .body }}"></a>
       </div>
       {{ end }}
     </div>

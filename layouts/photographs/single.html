@@ -1,7 +1,7 @@
 {{ define "main" }}
 <main id="main">
   <div class="photograph-single-container">
-    <img src="http://127.0.0.1:1313/images/p/{{ .Params.filename }}" class="photograph-single" alt="{{ .Content }}">
+    <img src="{{ .Site.Params.cdnUrl }}/{{ .Params.imageOriginalPath }}" class="photograph-single" alt="{{ .Content }}">
   </div>
   <div class="photograph-meta">
     <div class="meta-1">
