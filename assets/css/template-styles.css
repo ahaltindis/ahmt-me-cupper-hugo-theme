@@ -367,7 +367,7 @@ th:empty {
 .main-and-footer > div {
     max-width: 40rem;
     margin: 0 auto;
-    padding: 2.25rem;
+    padding: 2.25rem 1rem;
 }
 [role="contentinfo"] {
     font-size: 0.85rem;
@@ -1136,6 +1136,14 @@ h1 svg {
     .photographs {
         grid-gap: 0;
     }
+    .photograph-item {
+        border: 0.1px solid #555;
+    }
+    .photograph-item:hover .photograph-image,
+    .photograph-item:focus .photograph-image{
+        border-bottom: none;
+        margin-bottom: 0;
+}
 }
 @media screen and (max-width: 45em) {
     body a {
@@ -1228,6 +1236,11 @@ h1 svg {
     }
     code {
       word-break: break-all;
+    }
+    .photographs {
+        grid-gap: 0;
+        margin-left: -1rem;
+        margin-right: -1rem;
     }
 }
 @media print {
