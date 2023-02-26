@@ -5,9 +5,13 @@
   <div>
     <div class="photographs">
       {{ range $.Site.Data.photographs }}
+      {{ if not .hidden }}
+      {{ with $.Site.GetPage .slug }}
       <div class="photograph-item" tabindex="0">
-        <a href="{{ relref $.Page .slug }}"><img src="{{ $.Site.Params.cdnUrl }}/{{ .imagePreviewPath }}" class="photograph-image" alt="{{ .body }}"></a>
+        <a href="{{ .RelPermalink }}"><img src="{{ $.Site.Params.cdnUrl }}/{{ .Params.imagePreviewPath }}" class="photograph-image" alt="{{ .Params.body }}"></a>
       </div>
+      {{ end }}
+      {{ end }}
       {{ end }}
     </div>
   </div>
