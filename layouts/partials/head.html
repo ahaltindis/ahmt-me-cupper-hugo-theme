@@ -24,6 +24,11 @@
   <meta name="msapplication-TileColor" content="#ffffff">
   <meta name="theme-color" content="#ffffff">
 
+  {{ template "_internal/opengraph.html" . }}
+  {{- with $.Params.imageOriginalPath }}<meta property="og:image" content="{{ $.Site.Params.cdnUrl }}/{{ . }}"/>{{ end -}}
+
+  {{ template "_internal/twitter_cards.html" . }}
+
   {{ $templateStyles := resources.Get "css/template-styles.css" }}
   {{ $styles := $templateStyles | resources.ExecuteAsTemplate "css/styles.css" . }}
   <link rel="stylesheet" type="text/css" href="{{ $styles.RelPermalink }}">
