@@ -1174,6 +1174,9 @@ h1 svg {
         margin-top: 0.5rem;
         font-size: 1rem;
     }
+    .hide-nav-on-small {
+        display: none;
+    }
     .main-and-footer {
         margin: 0;
     }
@@ -1241,6 +1244,9 @@ h1 svg {
         grid-gap: 0;
         margin-left: -1rem;
         margin-right: -1rem;
+    }
+    .photograph-single {
+        margin-top: -2.5rem;
     }
 }
 @media print {

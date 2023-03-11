@@ -19,6 +19,9 @@
         {{ with .Site.Params.description }} {{ . | markdownify }} {{ end }}
       </p>
     </div>
+    {{ if and (eq .Type "photographs") (eq .BundleType "leaf") }}
+    {{ .Scratch.Set "hideNavOnSmall" true }}
+    {{ end }}
     {{ partial "nav.html" . }}
     {{ partial "lang-switch.html" . }}
     {{ if eq .Site.Params.moveFooterToHeader true }}
