@@ -19,6 +19,16 @@
     }
 }
 
+@layer components {
+    .page-heading {
+        @apply text-2xl xl:text-3xl font-miriam mb-5
+    }
+
+    .article-prose {
+        @apply prose xl:prose-lg dark:prose-invert
+    }
+}
+
 @layer utilities {
     .clip-polygon {
         clip-path: polygon(0% 0%, 90% 0%, 100% 50%, 90% 100%, 0% 100%);

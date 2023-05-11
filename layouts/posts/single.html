@@ -1,6 +1,6 @@
 {{ define "main" }}
   <main id="main">
-    <h1>{{ .Title }}</h1>
+    <h1 class="page-heading">{{ .Title }}</h1>
     <div class="date">
       {{ $dateLayout := $.Site.Params.dateLayout | default ":date_long" }}
       {{ $publishDate := .PublishDate }}
@@ -9,7 +9,9 @@
 
     {{ partial "toc.html" . }}
 
-    {{ .Content }}
+    <article class="article-prose">
+      {{ .Content }}
+    </article>
 
     {{ with .Lastmod }}
     {{ if gt . $publishDate }}
