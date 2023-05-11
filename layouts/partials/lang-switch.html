@@ -1,23 +1,29 @@
-<div class="lang-switch-list">
-  <ul>
-    {{ $currentContent := . }}
-    {{ if $currentContent.IsTranslated }}
-      {{ range $currentContent.Translations }}
-      <li><a href="{{ .Permalink }}">[ {{ lower .Language.LanguageName }} ]</a></li>
-      {{ end }}
-    {{ end }}
+{{ $langsToShow := slice }}
 
-    {{ range $.FirstSection.Translations }}
-      {{ $otherTranslation := .}}
-      {{ $skip := false }}
-      {{ range $currentContent.Translations }}
-        {{ if eq .Language $otherTranslation.Language }}
-        {{ $skip = true }}
-        {{ end }}
-      {{ end }}
-      {{ if and (eq $skip false) (.Site.Params.showLangSwitchAlways | default false) }}
-        <li><a href="{{ .Permalink }}">[ {{ lower .Language.LanguageName }} ]</a></li>
-      {{ end }}
+{{ $currentContent := . }}
+{{ if $currentContent.IsTranslated }}
+  {{ range $currentContent.Translations }}
+    {{ $langsToShow = $langsToShow | append . }}
+  {{ end }}
+{{ end }}
+
+{{ range $.FirstSection.Translations }}
+  {{ $otherTranslation := .}}
+  {{ $skip := false }}
+  {{ range $currentContent.Translations }}
+    {{ if eq .Language $otherTranslation.Language }}
+    {{ $skip = true }}
+    {{ end }}
+  {{ end }}
+  {{ if and (eq $skip false) (.Site.Params.showLangSwitchAlways | default false) }}
+    {{ $langsToShow = $langsToShow | append . }}
+  {{ end }}
+{{ end }}
+
+<div class="overflow-auto mt-6 min-w-max">
+  <ul>
+    {{ range $langsToShow }}
+    <li><a class="flex flex-nowrap px-6 py-2" href="{{ .Permalink }}">[ {{ lower .Language.LanguageName }} ]</a></li>
     {{ end }}
   </ul>
 </div>
