@@ -1,14 +1,16 @@
 <!DOCTYPE html>
-<html class="darks" lang="{{ .Site.Language.Lang }}">
+<html class="darks overscroll-y-none" lang="{{ .Site.Language.Lang }}">
   {{ partial "head.html" . }}
   <body class="bg-white text-black dark:bg-black dark:text-white leading-normal">
-    <!-- <a style="z-index: 99;" href="#main">{{ T "skip_to_content" }}</a> -->
+    <a href="#main" class="absolute -top-12 focus:top-0 focus:outline-none block w-full p-4 z-10 text-center bg-black text-white dark:bg-white dark:text-black">
+      {{ T "skip_to_content" }}
+    </a>
     {{ partial "noscript.html" . }}
     <div class="relative">
       <header class="fixed top-0 left-0 text-base h-screen md:w-72 2xl:w-80 4xl:w-[480px] pl-0 4xl:pl-40 bg-white" role="banner">
         <div class="flex flex-col p-9 h-full">
           <div class="flex">
-            <a class="text-3xl xl:text-4xl font-miriam" href="{{ .Site.BaseURL | relLangURL }}" aria-label="{{ .Site.Title }} home page">
+            <a class="text-3xl xl:text-4xl font-miriam" href="{{ .Site.BaseURL | relLangURL }}" aria-label="{{ .Site.Title }} home">
               <h1>{{ .Site.Params.navTitleText }}</h1>
             </a>
             <p class="library-desc">
