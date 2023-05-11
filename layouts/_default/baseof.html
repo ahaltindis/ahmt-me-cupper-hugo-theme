@@ -1,17 +1,31 @@
 <!DOCTYPE html>
-<html lang="{{ .Site.Language.Lang }}">
+<html class="darks" lang="{{ .Site.Language.Lang }}">
   {{ partial "head.html" . }}
-  <body>
-    <a style="z-index: 99;" href="#main">{{ T "skip_to_content" }}</a>
+  <body class="bg-white text-black dark:bg-black dark:text-white leading-normal">
+    <!-- <a style="z-index: 99;" href="#main">{{ T "skip_to_content" }}</a> -->
     {{ partial "noscript.html" . }}
-    <div class="wrapper">
-      {{ partial "header.html" . }}
-      <div class="main-and-footer">
-        <div>
-          {{ block "main" . }}{{ end }}
-          {{ if ne .Site.Params.moveFooterToHeader true }}
-            {{ partial "footer.html" . }}
+    <div class="relative">
+      <header class="fixed top-0 left-0 text-base h-screen md:w-72 2xl:w-80 4xl:w-[480px] pl-0 4xl:pl-40 bg-white" role="banner">
+        <div class="flex flex-col p-9 h-full">
+          <div class="flex">
+            <a class="text-3xl xl:text-4xl font-miriam" href="{{ .Site.BaseURL | relLangURL }}" aria-label="{{ .Site.Title }} home page">
+              <h1>{{ .Site.Params.navTitleText }}</h1>
+            </a>
+            <p class="library-desc">
+              {{ with .Site.Params.description }} {{ . | markdownify }} {{ end }}
+            </p>
+          </div>
+          {{ if and (eq .Type "photographs") (eq .BundleType "leaf") }}
+            {{ .Scratch.Set "hideNavOnSmall" true }}
           {{ end }}
+          {{ partial "nav.html" . }}
+          {{ partial "lang-switch.html" . }}
+        </div>
+      </header>
+      <div class="bg-stone-300">
+        <div class="my-0 mx-auto max-w-2xl py-9 px-4 bg-white">
+          {{ block "main" . }}{{ end }}
+          {{ partial "footer.html" . }}
         </div>
       </div>
     </div>

@@ -1,25 +1,28 @@
-<svg style="display: none">
+<svg class="display-none">
   <symbol id="arrow-right" fill="none" viewBox="0 0 24 24" stroke="currentColor">
     <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
   </symbol>
 </svg>
-<nav id="patterns-nav" class="patterns {{ if eq (.Scratch.Get "hideNavOnSmall") true }}hide-nav-on-small{{ end }}" role="navigation">
-  <h2 class="vh">{{ T "nav_main_navigation" }}</h2>
+<nav class="flex-auto overflow-auto mt-7 min-w-max {{ if eq (.Scratch.Get "hideNavOnSmall") true }}display-none md:display-unset{{ end }}" role="navigation">
   {{ $current := . }}
-  <ul id="patterns-list">
+  <ul>
   {{ range .Site.Menus.nav }}
-    <li class="pattern">
+    <li class="inline-block md:block list-none leading-5">
       {{ $active := or ($current.IsMenuCurrent "nav" .) ($current.HasMenuCurrent "nav" .) }}
       {{ $active = or $active (eq .Name $current.Title) }}
       {{ $active = or $active (and (eq .Identifier "posts") (eq $current.Section "posts")) }}
       {{ $active = or $active (and (eq .Identifier "photographs") (eq $current.Section "photographs")) }}
       {{ $active = or $active (and (eq .Identifier "dict") (eq $current.Section "dict")) }}
       {{ $active = or $active (and (eq .Identifier "tags") (eq $current.Section "tags")) }}
-      <a href="{{ .URL | relLangURL }}" {{ if $active }}aria-current="page"{{ end }}>
-        <svg class="nav-item-icon" aria-hidden="true" focusable="false">
+      <a href="{{ .URL | relLangURL }}"
+          class="flex flex-nowrap items-baseline px-4 py-2 font-bold
+          {{ if $active }}
+            bg-black text-white hover:text-white dark:bg-white dark:text-black hover:dark:text-black clip-polygon
+          {{ end }}">
+        <svg class="h-3 w-3 mr-1 stroke-[4]" aria-hidden="true" focusable="false">
           <use href="#arrow-right"></use>
         </svg>
-        <span class="text">{{ .Name }}</span>
+        <span class="ml-1">{{ .Name }}</span>
       </a>
     </li>
   {{ end }}

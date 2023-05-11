@@ -29,7 +29,7 @@
 
   {{ template "_internal/twitter_cards.html" . }}
 
-  {{ $templateStyles := resources.Get "css/template-styles.css" }}
+  {{ $templateStyles := resources.Get "css/main.css" }}
   {{ $styles := $templateStyles | resources.ExecuteAsTemplate "css/styles.css" . }}
   <link rel="stylesheet" type="text/css" href="{{ $styles.RelPermalink }}">
 
