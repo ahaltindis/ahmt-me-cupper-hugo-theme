@@ -14,7 +14,7 @@ module.exports = {
         'white': '#fefefe',
         'half-white': '#d0d0d0',
         'red': '#c83737',
-    },
+      },
     },
   },
   plugins: [

@@ -6,6 +6,7 @@
       {{ T "skip_to_content" }}
     </a>
     {{ partial "noscript.html" . }}
+    {{ partial "svg-def.html" . }}
     <div class="relative">
       <header class="fixed top-0 left-0 text-base h-screen md:w-72 xl:w-80 4xl:w-[480px] pl-0 4xl:pl-40" role="banner">
         <div class="flex flex-col p-9 h-full">
@@ -24,8 +25,8 @@
           {{ partial "lang-switch.html" . }}
         </div>
       </header>
-      <div class="md:pl-72 xl:pl-32 2xl:pl-0">
-        <div class="my-0 mx-auto max-w-3xl py-9 px-4 4xl:ml-[600px] text-lg">
+      <div class="md:pl-72 xl:pl-34 2xl:pl-0">
+        <div class="my-0 mx-auto max-w-4xl py-9 px-4 4xl:ml-[600px] text-lg">
           {{ block "main" . }}{{ end }}
           {{ partial "footer.html" . }}
         </div>
