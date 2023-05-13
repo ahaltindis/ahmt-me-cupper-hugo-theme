@@ -5,32 +5,27 @@
   {{ if $.Site.Params.paginatePosts }}
   {{ $paginator = .Paginate .Pages }}
   {{ end }}
-  <ul class="patterns-list" id="list">
+  <ul class="mt-8">
     {{ range $paginator.Pages }}
-    <li>
-      {{ if $.Site.Params.showPostSummaries }}
-      <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
-      <div class="list-sub-section">
-        <div class="date">
-          {{ .PublishDate | time.Format $.Site.Params.dateLayout | default ":date_long" }}
-        </div>
+    <li class="mb-5">
+      <div class="flex">
+        <div class="font-mono text-base leading-8 text-gray-700"><span>{{ .PublishDate.Format "2006-01-02" }}</span></div>
+        <div class="ml-5"><a class="border-b-[1px] border-b-black" href="{{ .RelPermalink }}"><strong>{{ .Title }}</strong></a></div>
       </div>
-      {{ .Summary }}
+      {{ if $.Site.Params.showPostSummaries }}
+        <p class="text-base border-l-4 pl-4 mt-1">
+          {{ .Summary }}
+        </p>
         {{ if .Truncated }}
-        <span class="read-more">
+        <span class="text-base inline-block w-full text-right mb-2">
           <a href="{{ .RelPermalink }}">
             <span>{{ T "read_more" }}</span>
-            <svg stroke-width="3">
+            <svg class="w-4 h-4 inline" stroke-width="3">
               <use href="#arrow-right" />
             </svg>
           </a>
         </span>
         {{ end }}
-      {{ else }}
-      <div class="posts-list-single">
-        <div class="left"><span>{{ .PublishDate.Format "2006-01-02" }}</span></div>
-        <div class="right"><a href="{{ .RelPermalink }}"><strong>{{ .Title }}</strong></a></div>
-      </div>
       {{ end }}
     </li>
     {{ end }}

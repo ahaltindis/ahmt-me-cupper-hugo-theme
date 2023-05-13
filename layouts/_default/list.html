@@ -2,22 +2,15 @@
 <main id="main">
   <h1 class="page-heading">{{ .Title }}</h1>
   {{ if site.Params.search }}
-  <input
-    id="search"
-    type="text"
-    placeholder="{{ T "search_placeholder" }}"
-    aria-label="{{ T "search_aria_label" }}"
-  />
+  <input id="search" type="text" placeholder="{{ T "search_placeholder" }}" aria-label="{{ T "search_aria_label" }}" />
   {{ end }}
-  <p />
-  <ul class="patterns-list" id="list">
+  <ul class="mt-8">
     {{ range .Pages.ByPublishDate.Reverse }}
-    <li>
-      <h2>
-        <a href="{{ .RelPermalink }}">
-          {{ .Title }}
-        </a>
-      </h2>
+    <li class="mb-5">
+      <div class="flex">
+        <div class="font-mono text-base leading-8 text-gray-700"><span>{{ .PublishDate.Format "2006-01-02" }}</span></div>
+        <div class="ml-5"><a class="border-b-[1px] border-b-black" href="{{ .RelPermalink }}"><strong>{{ .Title }}</strong></a></div>
+      </div>
     </li>
     {{ end }}
   </ul>
