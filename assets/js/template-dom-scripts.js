@@ -17,6 +17,11 @@
   })
 }());
 
+/* To be able to use scroll in CSS animations */
+window.addEventListener('scroll', () => {
+  document.body.style.setProperty('--scroll', window.pageYOffset / (document.body.offsetHeight - window.innerHeight));
+}, false);
+
 /* Enable scrolling by keyboard of code samples */
 (function () {
   var codeBlocks = document.querySelectorAll('pre, .code-annotated');

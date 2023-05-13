@@ -17,6 +17,22 @@
     a:hover {
         @apply text-red border-red;
     }
+
+    .hide-on-scroll {
+        animation: hide 1.01s cubic-bezier(0,1,0,1);
+        animation-play-state: paused;
+        animation-delay: calc(var(--scroll) * -1s);
+    }
+
+    .hide-on-scroll:hover, .hide-on-scroll:focus-within {
+        animation: none;
+    }
+
+    @keyframes hide {
+        to {
+            opacity: 0;
+        }
+    }
 }
 
 @layer components {
