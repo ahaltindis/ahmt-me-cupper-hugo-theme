@@ -20,7 +20,7 @@
   {{ end }}
 {{ end }}
 
-<div class="overflow-auto mt-6 min-w-max mx-auto md:mx-0">
+<div class="overflow-auto min-w-max mx-auto md:mx-0 {{ with not (.Scratch.Get "hideNavOnSmall") }} mt-6 {{ end }}">
   <ul>
     {{ range $langsToShow }}
     <li><a class="flex flex-nowrap px-6 py-2" href="{{ .Permalink }}">[ {{ lower .Language.LanguageName }} ]</a></li>

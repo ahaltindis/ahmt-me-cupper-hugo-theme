@@ -7,10 +7,10 @@
     </a>
     {{ partial "noscript.html" . }}
     {{ partial "svg-def.html" . }}
-    {{ $scrollbarHidable := .IsPage }}
-    {{ $scrollbarHidable = or $scrollbarHidable (eq .Type "photographs") }}
+    {{ $sidebarHidable := .IsPage }}
+    {{ $sidebarHidable = or $sidebarHidable (eq .Type "photographs") }}
     <div class="relative">
-      <header class="static md:fixed top-0 left-0 text-base h-auto md:h-screen w-auto md:w-72 xl:w-80 4xl:w-[480px] pl-0 4xl:pl-40 {{ with $scrollbarHidable }}hide-on-scroll{{ end }}" role="banner">
+      <header class="static md:fixed top-0 left-0 text-base h-auto md:h-screen w-auto md:w-72 xl:w-80 4xl:w-[480px] pl-0 4xl:pl-40 {{ with $sidebarHidable }}hide-on-scroll{{ end }}" role="banner">
         <div class="flex flex-col p-6 md:p-9 h-full">
           <div class="text-center md:text-left">
             <a class="text-3xl xl:text-4xl font-miriam" href="{{ .Site.BaseURL | relLangURL }}" aria-label="{{ .Site.Title }} home">
