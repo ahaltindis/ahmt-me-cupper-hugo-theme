@@ -5,7 +5,7 @@
     {{ .Content }}
   </article>
   <div>
-    <div class="grid grid-cols-3 lg:gap-6">
+    <div class="grid grid-cols-3 lg:gap-6 -mx-6 md:mx-0">
       {{ range $.Site.Data.photographs }}
       {{ if not .hidden }}
       {{ with $.Site.GetPage .slug }}
