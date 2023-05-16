@@ -6,6 +6,7 @@
     {{ $active = or $active (eq .Name $current.Title) }}
     {{ $active = or $active (and (eq .Identifier "posts") (eq $current.Section "posts")) }}
     {{ $active = or $active (and (eq .Identifier "photographs") (eq $current.Section "photographs")) }}
+    {{ $active = or $active (and (eq .Identifier "til") (eq $current.Section "til")) }}
     {{ $active = or $active (and (eq .Identifier "dict") (eq $current.Section "dict")) }}
     {{ $active = or $active (and (eq .Identifier "tags") (eq $current.Section "tags")) }}
     <li class="inline-block md:block list-none leading-5 py-2 pr-1 md:px-4 mr-2 mt-2 md:mr-0

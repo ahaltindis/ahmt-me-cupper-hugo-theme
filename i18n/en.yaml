@@ -26,3 +26,9 @@
   translation: Figure
 - id: dict_all_entries
   translation: all entries in this title
+- id: categories
+  translation: Categories
+- id: total_til_notes_so_far
+  translation: Total {{ . }} notes so far and continuing..
+- id: recent_til
+  translation: Recently Learned

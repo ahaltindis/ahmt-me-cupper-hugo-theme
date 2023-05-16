@@ -26,3 +26,9 @@
   translation: Şekil
 - id: dict_all_entries
   translation: bu başlıktaki tüm girdiler
+- id: categories
+  translation: Kategoriler
+- id: total_til_notes_so_far
+  translation: Şu ana kadar {{ . }} yazı oldu ve devam ediyor..
+- id: recent_til
+  translation: Yakın Zamanda Öğrendiklerim
