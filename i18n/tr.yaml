@@ -31,4 +31,4 @@
 - id: total_til_notes_so_far
   translation: Şu ana kadar {{ . }} yazı oldu ve devam ediyor..
 - id: recent_til
-  translation: Yakın Zamanda Öğrendiklerim
+  translation: Son Notlar
