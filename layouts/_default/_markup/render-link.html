@@ -1,2 +1,2 @@
 {{ $isExternal := strings.HasPrefix .Destination "http" }}
-<a href="{{ .Destination | safeURL }}" title="{{ .Title }}" {{ if $isExternal }} class="mr-3" target="_blank" rel="noopener" {{ end }}>{{ .Text | safeHTML }}{{ if $isExternal }}<img class="absolute h-3 w-3 mt-2 ml-[1px] inline-block" src="{{ "images/icon-arrow-external.svg" | relURL }}" />{{ end }}</a>
+<a href="{{ .Destination | safeURL }}" title="{{ .Title }}" {{ if $isExternal }} class="mr-3" target="_blank" rel="noopener" {{ end }}>{{ .Text | safeHTML }}{{ if $isExternal }}<img class="absolute h-3 w-3 mt-2 ml-[1px] inline-block" src="{{ "images/icon-arrow-external.svg" | relURL }}" alt="" />{{ end }}</a>

@@ -8,6 +8,7 @@
         src: url('{{ "css/fonts/miriamlibre-bold.woff2" | relURL }}') format('woff2'), url('{{ "css/fonts/miriamlibre-bold.woff" | relURL }}') format('woff');
         font-weight: bold;
         font-style: normal;
+        font-display: swap;
     }
 
     a {
