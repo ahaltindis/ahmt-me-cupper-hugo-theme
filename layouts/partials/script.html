@@ -5,3 +5,6 @@
 {{ range .Site.Params.customJs }}
   <script src="{{ . | relURL }}"></script>
 {{ end }}
+
+{{ $galleryJs := resources.Get "js/gallery.js" | fingerprint }}
+<script src="{{ $galleryJs.RelPermalink }}"></script>

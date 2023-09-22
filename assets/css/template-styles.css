@@ -44,6 +44,18 @@
     .article-prose {
         @apply prose xl:prose-lg dark:prose-invert
     }
+
+    .gallery-image {
+        @apply border-b-4 border-transparent cursor-pointer opacity-60
+    }
+
+    .gallery-image-selected {
+        @apply border-black opacity-100 cursor-default !important
+    }
+
+    .gallery-image-hover {
+        @apply hover:border-red hover:opacity-100
+    }
 }
 
 @layer utilities {
