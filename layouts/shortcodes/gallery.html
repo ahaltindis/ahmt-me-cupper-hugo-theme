@@ -18,8 +18,8 @@
 {{ $first_img_title := index $first_arg 1 }}
 
 <div class="grid gap-4">
-  <figure class="mb-0" role="group" aria-describedby="{{ $gallery_id }}_caption">
-    <img id="{{ $gallery_id }}_image" class="h-auto max-w-full rounded-lg m-0" src="{{ $first_img_src }}" />
+  <figure class="mt-4 mb-0 justify-self-center" role="group" aria-describedby="{{ $gallery_id }}_caption">
+    <img id="{{ $gallery_id }}_image" class="max-h-[70vh] max-w-full rounded-lg m-0" src="{{ $first_img_src }}" />
     <figcaption id="{{ $gallery_id }}_caption" class="font-light text-sm mt-2 ml-1 text-center">
       {{ $first_img_title| markdownify }}
     </figcaption>
@@ -31,7 +31,7 @@
     {{ $img_src := index $arg 0 }}
     {{ $img_title := index $arg 1 }}
     <img
-      class="h-auto max-w-full rounded-lg mt-0 gallery-image gallery-image-hover {{ if eq $index 0 }} gallery-image-selected {{ end }}"
+      class="max-h-32 max-w-full rounded-lg justify-self-center bg-slate-200 mt-0 gallery-image gallery-image-hover {{ if eq $index 0 }} gallery-image-selected {{ end }}"
       src="{{ $img_src }}"
       alt="{{ $img_title | markdownify}}"
       onclick="changeGalleryImage(this, {{ $gallery_id }});"
