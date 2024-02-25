@@ -1,16 +1,37 @@
 {{ define "main" }}
 <main id="main">
-  <h1 class="page-heading">{{ .Title }}</h1>
-  {{ $paginator := . }}
-  {{ if $.Site.Params.paginatePosts }}
-  {{ $paginator = .Paginate .Pages }}
+  {{ $all_posts := .Pages }}
+  {{ range .Site.Home.Translations }}
+    {{ $all_posts = $all_posts | lang.Merge (where .Site.RegularPages "Section" "==" "posts") }}
   {{ end }}
+
+  <h1 class="page-heading">{{ .Title }}</h1>
   <ul class="mt-8">
-    {{ range $paginator.Pages }}
-    <li class="mb-5">
+    {{ range $all_posts }}
+      {{ $is_other_lang := false }}
+      {{ $post_link := .RelPermalink }}
+      {{ $li_class := "mb-5" }}
+      {{ $title_a_prop := "" }}
+      {{ $title_a_img := "" }}
+      {{ if ne .Language $.Site.Language }}
+        {{ $is_other_lang = true }}
+        {{ $post_link = .Permalink }}
+        {{ $li_class = print $li_class " opacity-60" }}
+        {{ $title_a_prop = `target="_blank" rel="noopener"` }}
+        {{ $ext_img := "images/icon-arrow-external.svg" | relURL }}
+        {{ $title_a_img = print `<img class="absolute h-3 w-3 mt-2 ml-[3px] inline-block" src="` $ext_img `" />` }}
+      {{ end }}
+    <li class="{{ $li_class }}">
       <div class="flex">
-        <div class="font-mono text-base leading-8 text-gray-700 min-w-max"><span>{{ .PublishDate.Format "2006-01-02" }}</span></div>
-        <div class="ml-5"><a class="border-b-[1px] border-b-black" href="{{ .RelPermalink }}"><strong>{{ .Title }}</strong></a></div>
+        <div class="font-mono text-base leading-8 text-gray-700 min-w-max">
+            <span>{{ .PublishDate.Format "2006-01-02" }}</span>
+        </div>
+        <div class="ml-5">
+            {{ if $is_other_lang }}[{{ .Language }}]{{ end }}
+            <a href="{{ $post_link }}" class="border-b-[1px] border-b-black" title="{{ .Title }}" {{ $title_a_prop | safeHTMLAttr }}>
+                <span class="font-bold">{{ .Title }}</span>{{ $title_a_img | safeHTML }}
+            </a>
+        </div>
       </div>
       {{ if $.Site.Params.showPostSummaries }}
         <p class="text-base border-l-4 pl-4 mt-1">
@@ -18,7 +39,7 @@
         </p>
         {{ if .Truncated }}
         <span class="text-base inline-block w-full text-right mb-2">
-          <a href="{{ .RelPermalink }}">
+          <a href="{{ $post_link }}">
             <span>{{ T "read_more" }}</span>
             <svg class="w-4 h-4 inline" stroke-width="3">
               <use href="#arrow-right" />
@@ -30,8 +51,5 @@
     </li>
     {{ end }}
   </ul>
-  {{ if $.Site.Params.paginatePosts }}
-  {{ template "_internal/pagination.html" . }}
-  {{ end }}
 </main>
 {{ end }}
