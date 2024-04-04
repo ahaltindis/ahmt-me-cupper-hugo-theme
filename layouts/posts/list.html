@@ -5,12 +5,12 @@
     {{ $all_posts = $all_posts | lang.Merge (where .Site.RegularPages "Section" "==" "posts") }}
   {{ end }}
 
-  <h1 class="page-heading">{{ .Title }}</h1>
-  <ul class="mt-8">
+  <h1 class="page-heading mb-6">{{ .Title }}</h1>
+  <ul>
     {{ range $all_posts }}
       {{ $is_other_lang := false }}
       {{ $post_link := .RelPermalink }}
-      {{ $li_class := "mb-5" }}
+      {{ $li_class := "mb-4" }}
       {{ $title_a_prop := "" }}
       {{ $title_a_img := "" }}
       {{ if ne .Language $.Site.Language }}
@@ -23,7 +23,7 @@
       {{ end }}
     <li class="{{ $li_class }}">
       <div class="flex">
-        <div class="font-mono text-base leading-8 text-gray-700 min-w-max">
+        <div class="font-mono leading-8 text-gray-700 min-w-max">
             <span>{{ .PublishDate.Format "2006-01-02" }}</span>
         </div>
         <div class="ml-5">
@@ -34,11 +34,11 @@
         </div>
       </div>
       {{ if $.Site.Params.showPostSummaries }}
-        <p class="text-base border-l-4 pl-4 mt-1">
+        <p class="border-l-4 pl-4 mt-1">
           {{ .Summary }}
         </p>
         {{ if .Truncated }}
-        <span class="text-base inline-block w-full text-right mb-2">
+        <span class="inline-block w-full text-right mb-2">
           <a href="{{ $post_link }}">
             <span>{{ T "read_more" }}</span>
             <svg class="w-4 h-4 inline" stroke-width="3">

@@ -38,11 +38,11 @@
 
 @layer components {
     .page-heading {
-        @apply text-2xl xl:text-3xl font-miriam mb-5
+        @apply text-xl xl:text-2xl font-miriam
     }
 
     .article-prose {
-        @apply prose xl:prose-lg dark:prose-invert
+        @apply prose dark:prose-invert
     }
 
     .gallery-image {
