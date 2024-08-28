@@ -18,7 +18,8 @@ module.exports = {
         '4xl': '1920px'
       },
       fontFamily: {
-        'miriam': ['Miriam Libre', 'serif']
+        'miriam': ['Miriam Libre', 'serif'],
+        'sourcesans': ['SourceSans3', 'sans']
       },
       colors: {
         'black': '#111111',

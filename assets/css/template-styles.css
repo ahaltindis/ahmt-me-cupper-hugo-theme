@@ -11,8 +11,16 @@
         font-display: swap;
     }
 
+    @font-face {
+        font-family: 'SourceSans3';
+        src: url('{{ "css/fonts/SourceSans3-Regular.ttf.woff2" | relURL }}') format('woff2');
+        font-style: normal;
+        font-display: swap;
+    }
+
     a {
         cursor: pointer;
+        text-decoration: none;
     }
 
     a:hover {
@@ -42,7 +50,7 @@
     }
 
     .article-prose {
-        @apply prose dark:prose-invert
+        @apply prose dark:prose-invert prose-a:text-rose-950 prose-a:no-underline prose-a:font-semibold font-sourcesans max-w-2xl
     }
 
     .gallery-image {

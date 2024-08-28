@@ -19,7 +19,7 @@
         {{ $li_class = print $li_class " opacity-60" }}
         {{ $title_a_prop = `target="_blank" rel="noopener"` }}
         {{ $ext_img := "images/icon-arrow-external.svg" | relURL }}
-        {{ $title_a_img = print `<img class="absolute h-3 w-3 mt-2 ml-[3px] inline-block" src="` $ext_img `" />` }}
+        {{ $title_a_img = print `<img class="absolute max-h-[12px] max-w-[12px] mt-1 ml-[1px] inline-block" src="` $ext_img `" />` }}
       {{ end }}
     <li class="{{ $li_class }}">
       <div class="flex">
