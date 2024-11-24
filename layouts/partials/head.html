@@ -29,9 +29,30 @@
 
   {{ template "_internal/twitter_cards.html" . }}
 
-  {{ $templateStyles := resources.Get "css/main.css" }}
-  {{ $styles := $templateStyles | resources.ExecuteAsTemplate "css/styles.css" . }}
-  <link rel="stylesheet" type="text/css" href="{{ $styles.RelPermalink }}">
+  {{ with (templates.Defer (dict "key" "global")) }}
+    {{ $t := debug.Timer "tailwindcss" }}
+    {{ $templateStyles := resources.Get "css/template-styles.css" }}
+    {{ with $templateStyles | resources.ExecuteAsTemplate "css/styles.css" . }}
+      {{ $opts := dict
+        "inlineImports" true
+        "optimize" (not hugo.IsDevelopment)
+      }}
+      {{ with . | css.TailwindCSS $opts }}
+        {{ if hugo.IsDevelopment }}
+          <link rel="stylesheet" href="{{ .RelPermalink }}" />
+        {{ else }}
+          {{ with . | minify | fingerprint }}
+            <link
+              rel="stylesheet"
+              href="{{ .RelPermalink }}"
+              integrity="{{ .Data.Integrity }}"
+              crossorigin="anonymous" />
+          {{ end }}
+        {{ end }}
+      {{ end }}
+    {{ end }}
+    {{ $t.Stop }}
+  {{ end }}
 
   {{ range .Site.Params.customCss }}
     <link rel="stylesheet" href="{{ . | relURL }}">
