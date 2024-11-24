@@ -32,3 +32,7 @@
   translation: Şu ana kadar {{ . }} yazı oldu ve devam ediyor..
 - id: recent_til
   translation: Son Notlar
+- id: all_projects
+  translation: Tüm Projeler
+- id: recent_projects
+  translation: Yakın Zamanda Uğraştıklarım

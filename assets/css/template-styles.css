@@ -64,6 +64,27 @@
     .gallery-image-hover {
         @apply hover:border-red hover:opacity-100
     }
+
+    .hr-text {
+      display: flex;
+      align-items: center;
+    }
+
+    .hr-text::before {
+      content: '';
+      flex: 1;
+      border-bottom: 1px dashed #6b7280;
+    }
+
+    .hr-text::after {
+      content: '↴';
+      padding-top: 5px;
+      font-size: large;
+    }
+
+    .hr-text:not(:empty)::before {
+      margin-right: .5em;
+    }
 }
 
 @layer utilities {
